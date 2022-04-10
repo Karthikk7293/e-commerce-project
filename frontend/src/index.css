@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+a{
+  text-decoration: none !important;
+}
+
+.test{
+  width: fit-content;
+  margin-inline: auto;                                                                                                                                                                                                                                                         
+}
+.cards{
+  font-weight:500;
+  background:#ffffff;
+}
+.cards:hover{
+  color:ghostwhite;
+  cursor:pointer
+}
+.sample{
+  z-index: 1200;
+}
+.productCard{
+  position:relative;
+}
+.productText{
+  position:absolute;
+  right:4%;
+  top:3%;
+  
+}
+.sideTab{   
+   background: #2c2c2e;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color:#2c2c2e;
+}
+.tableColor{
+ background: #fff;
+ ;
+}
+
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+/* .carousel img {
+  height: 300px;
+  padding: 2px;
+  margin: 40px;
+  width:400px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+.carousel a {
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+}
+
+.crop-img-container-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  background: #1a1a1a54;
+}
+
+.crop-img-container {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  padding: 1rem;
+}
+
+header > nav {
+min-height:4 rem;
+}
+
+/* .brand-text {
+  text-align: unset !important;
+  text-transform: none !important;
+  font-weight: 900 !important;
+  font-size: 2rem;
+  font-family: 'Rancho', cursive !important;
+  letter-spacing: 1px;
+  line-height: initial;
+  padding: 0 !important;
+} */
+.brand-text {
+  text-align: unset !important;
+  text-transform: none !important;
+  font-weight: 900 !important;
+  font-size: 2rem;
+  font-family: 'Rancho', cursive !important;
+  letter-spacing: -0.5px;
+  line-height: initial;
+  padding: 0 !important;
+}
+
+.brand-text>span {
+  color: var(--color);
+  font-size: 2.3rem;
+}
