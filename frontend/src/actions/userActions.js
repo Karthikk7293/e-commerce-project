@@ -29,7 +29,6 @@ export const login = (email,password)=>async (dispatch)=>{
             dispatch({type:USER_LOGIN_REQUEST})
             const config = { headers: {'Content-Type': 'application/json',},}
             const {data}=await axios.post('/api/users/login',{email,password},config)
-            // console.log(data)
             dispatch({type:USER_LOGIN_SUCCESS,payload:data})
             localStorage.setItem('userInfo', JSON.stringify(data))
         } catch (error) {
@@ -71,7 +70,6 @@ export const register = (name,number,email,password,refferalId)=>async (dispatch
       dispatch({type:USER_REGISTER_REQUEST})
       const config = { headers: {'Content-Type': 'application/json',},}
       const {data}=await axios.post('/api/users/register',{name,number,email,password,refferalId},config)
-      console.log(data)
       dispatch({type:USER_REGISTER_SUCCESS,payload:data})
       dispatch({type:USER_LOGIN_SUCCESS, payload:data})
       localStorage.setItem('userInfo', JSON.stringify(data))
@@ -110,7 +108,6 @@ export const updateUserProfile = (user)=>async (dispatch,getState)=>{
       const config = { headers: {'Content-Type': 'application/json',
     Authorization: `Bearer ${userInfo.token}`},}
       const {data}=await axios.put(`/api/users/profile`,user,config)
-      // console.log(data)
       dispatch({type:USER_UPDATE_PROFILE_SUCCESS,payload:data})
   } catch (error) {
       dispatch({type: USER_UPDATE_PROFILE_FAIL,
@@ -128,7 +125,6 @@ export const listUsers = ()=>async (dispatch,getState)=>{
       const {userLogin:{userInfo}} = getState()
       const config = { headers: {Authorization: `Bearer ${userInfo.token}`},}
       const {data}=await axios.get(`/api/users/getusers`,config)
-      // console.log(data)
       dispatch({type:USER_LIST_SUCCESS,payload:data})
   } catch (error) {
       dispatch({type: USER_LIST_FAIL,
@@ -171,7 +167,7 @@ export const addTOAddresses = (address) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.post(`/api/address/${userInfo._id}`, address, config)
-    dispatch({ type: ADD_ADDRESSES })
+    dispatch({ type: ADD_ADDRESSES, payload: data })
   }catch (error) {
     dispatch({
         payload:

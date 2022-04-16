@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useAlert } from 'react-alert'
 import { Link, useNavigate } from 'react-router-dom'
 import { listCategories } from '../actions/categoryActions'
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { addOffer, deleteOffer, listOffers } from '../actions/offerActions'
-import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
+// import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
 const CreateOffer = () => {
   const alert=useAlert()

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Signin.css'
-import { useNavigate, useSearchParams,Link, useParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, useParams } from 'react-router-dom'
 import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message';
@@ -15,14 +15,12 @@ function OtpVarifyScreen() {
   const dispatch = useDispatch();
   const params = useParams()
   const alert = useAlert()
-  const [searchParams, setSearchParams] = useSearchParams();
   const userLogin = useSelector(state => state.userLogin)
   const { loading, error, userInfo } = userLogin
 
   const [code, setCode] = useState('')
 
   const navigate = useNavigate();
-console.log(params.number);
   useEffect(() => {
     if (userInfo) {
       navigate('/')

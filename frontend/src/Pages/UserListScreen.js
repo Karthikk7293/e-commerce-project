@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Container, Row, Col, Nav } from "react-bootstrap";
+import { Table, Button, Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { listUsers, updateUser } from "../actions/userActions";
 import Message from "../components/Message";
@@ -126,7 +125,7 @@ if(data.success){
                       {/* </LinkContainer> */}
                       {user.isBlocked ? (
                         <Button
-                          variant="danger"
+                          variant="success"
                           className="btn-sm"
                           onClick={() => unblockHandler(user)}
                         >

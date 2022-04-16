@@ -22,7 +22,7 @@ const Footer = () => {
       <section className=''>
         <div className='container text-center text-md-start mt-5'>
           <div className='row mt-3'>
-            <div className='col-md-3 col-lg-4 col-xl-3 mx-auto mb-4'>
+            <div className='col-md-4 col-lg-4 col-xl-3 mx-auto mb-4'>
               <h5 className='text-uppercase text-white fw-bold mb-2 '>
             <img width="50"  className='mx-2' style={{ borderRadius: '50%' }}  src="https://media.istockphoto.com/vectors/running-shoe-heart-symbol-on-white-backdrop-vector-id1212219150?k=20&m=1212219150&s=612x612&w=0&h=HDUBBEueWigtu3f7ne8mZFbJmjtfzGqSdSLIgmw5-Lw=" alt="" />
 
@@ -80,17 +80,17 @@ const Footer = () => {
 
             <div className='col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4'>
               <h6 className='text-uppercase text-white fw-bold mb-4'>Contact</h6>
-              <p>
-              <i class="fa-solid fa-location-dot"></i>New York, NY 10012, US
+              <p className='text-white h6'>
+              <i class="fa-solid fa-location-dot"> KOCHIN, NY 10012, KERALA</i>
               </p>
-              <p>
-              <i class="fa-solid fa-envelope"></i>
-                info@example.com
+              <p className='text-white h6'>
+              <i class="fa-solid fa-envelope"> info@theshoeshop.com</i>
+                
               </p>
-              <p>
+              <p className='text-white'>
                <ion-icon name="call-outline"></ion-icon> + 01 234 567 88
               </p>
-              <p>
+              <p className='text-white'>
               <ion-icon name="print-outline"></ion-icon> + 01 234 567 89
               </p>
             </div>

@@ -67,7 +67,6 @@ var razorpay = new Razorpay({
 
 const getOrder = async (id) => {
   const data = Order.findById(id).populate('user', 'name email')
-  // console.log(data)
   return data
 }
 
@@ -82,7 +81,6 @@ app.post('/razorpay/:id', async (req, res) => {
     receipt: shortid.generate(),
     payment_capture,
   }
-  console.log(options.amount)
 
   try {
     const response = await razorpay.orders.create(options)

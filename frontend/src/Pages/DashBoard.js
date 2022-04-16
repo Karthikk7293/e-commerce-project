@@ -48,7 +48,6 @@ const DashBoard = () => {
       unpaid: orderData && orderData.paidprice,
       total: orderData && orderData.unpaid,
     }]
-    // console.log(sample)
 
     return (
         <>
@@ -56,14 +55,14 @@ const DashBoard = () => {
                 <Row>
                     <Col xs={12} md={2} className=' text-start' style={{minHeight:"80vh"}} >
                             <Row>
-                                <Nav justify variant="pills" className="pt-4 mt-5 bg-white" style={{ cursor: 'pointer' }}>
-                                    <Nav.Item  className='text-left' >
+                                <Nav justify variant="pills" className=" mt-5 bg-white" style={{ cursor: 'pointer' }}>
+                                    <Nav.Item  className='text-left ' style={{margin:'0'}} >
                                         <Nav.Link eventKey="first" className='font-weight-bold '>SALES</Nav.Link>
                                     </Nav.Item>
-                                    <Nav.Item  className='text-left'>
+                                    <Nav.Item  className='text-left'  style={{margin:'0'}} >
                                         <Nav.Link eventKey="second" className='font-weight-bold'>PRODUCTS</Nav.Link>
                                     </Nav.Item>
-                                    <Nav.Item className='text-left'>
+                                    <Nav.Item className='text-left'  style={{margin:'0'}} >
                                         <Nav.Link eventKey="third" className='font-weight-bold'>USERS</Nav.Link>
                                     </Nav.Item>
                                     

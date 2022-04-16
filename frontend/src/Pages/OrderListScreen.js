@@ -21,7 +21,6 @@ const OrderListScreen = () => {
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listOrders())
-      // console.log(orders)
     } else {
       navigate('/signin')
     }
@@ -54,7 +53,7 @@ const OrderListScreen = () => {
                 <td>{order._id}</td>
                 <td>{order.user && order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
-                <td>${order.totalPrice}</td>
+                <td> <i class="fa-solid fa-indian-rupee-sign"></i>{order.totalPrice}</td>
                 <td>
                   {order.isPaid ? (
                     <>
@@ -64,7 +63,6 @@ const OrderListScreen = () => {
                   ) : (
                   <i className='fas fa-times' style={{ color: 'red' }}></i>
                   )}
-                  {/* {console.log(order)} */}
                 </td>
                 <td>
                   {order.isDelivered ? (

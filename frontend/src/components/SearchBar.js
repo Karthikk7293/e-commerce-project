@@ -7,7 +7,6 @@ const SearchBar = () => {
     const [keyword, setKeyword] = useState('')
   
     const submitHandler = (e) => {
-      console.log("something");
       e.preventDefault()
       if (keyword.trim()) {
         navigate(`/search/${keyword}`)
@@ -24,7 +23,6 @@ const SearchBar = () => {
          className=''
           onChange={((e) => setKeyword(e.target.value))}
           placeholder="Search Shoes and More..."
-          style={{height:'2 rem',paddingTop:'0.5rem' ,width:"25rem"}}
           height='1rem'
         ></Form.Control>
        

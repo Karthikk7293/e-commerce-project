@@ -5,7 +5,6 @@ import Address from '../Models/addressModel.js'
 // @route   POST /api/address/:id
 // @access  Private
 const addAddress=asyncHandler(async(req,res)=>{
-    // console.log(req.body)
     const userId=req.params.id
     const {address,postalCode,country,city}=req.body
 
@@ -26,11 +25,11 @@ const addAddress=asyncHandler(async(req,res)=>{
 const getAddresses = asyncHandler(async (req, res) => {
     const userId=req.params.id
     const address=await Address.find({user:userId})
+    
     res.json(address)
 })
 
 const editAddress=asyncHandler(async (req, res) => {
-    console.log(req.body)
     const addressId=req.params.id
     const Addresse=await Address.findById({_id:addressId})
     if(Addresse){
@@ -54,11 +53,9 @@ const editAddress=asyncHandler(async (req, res) => {
 })
 
 const getAddressDetails = asyncHandler(async (req, res) => {
-    // console.log("+++++++" + req.body)
     const addressId=req.params.id
     const address=await Address.findById({_id: addressId})
     res.json(address)
-    // console.log(address)
 })
 
 const deleteAddress=asyncHandler(async (req, res) => {

@@ -35,7 +35,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.post(`/api/orders`,order,config)
-        // console.log(data)
         dispatch({ type: ORDER_CREATE_SUCCESS, payload: data })
         dispatch({type: CART_CLEAR_ITEMS,payload: data})
     } catch (error) {
@@ -59,7 +58,6 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.get(`/api/orders/${id}`,config)
-        // console.log(data)
         dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
@@ -83,7 +81,6 @@ export const payOrder = (orderId,paymentResult) => async (dispatch, getState) =>
             },
         }
         const { data } = await axios.put(`/api/orders/${orderId}/pay`,paymentResult,config) 
-        // console.log(data)
         dispatch({ type: ORDER_PAY_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
@@ -106,7 +103,6 @@ export const listMyOrders = () => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.get('/api/orders/myorders',config) 
-        // console.log(data)
         dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
@@ -129,7 +125,6 @@ export const listOrders = () => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.get('/api/orders',config) 
-        // console.log(data)
         dispatch({ type: ORDER_LIST_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
@@ -153,7 +148,6 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.put(`/api/orders/${order._id}/deliver`,{},config) 
-        // console.log(data)
         dispatch({ type: ORDER_DELIVER_SUCCESS, payload: data })
     } catch (error) {
         dispatch({

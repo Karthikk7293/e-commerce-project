@@ -16,8 +16,10 @@ const PlaceOrderScreen = () => {
     const cart = useSelector((state) => state.cart)
 
     const userDetails = useSelector(state => state.userDetails)
-    const { loading, error:detailsError, user } = userDetails
-
+    const {
+        //  loading,
+          error:detailsError, 
+          user } = userDetails
     const addDecimals = (num) => {
         return (Math.round(num * 100) / 100).toFixed(2)
     }
@@ -49,7 +51,6 @@ const PlaceOrderScreen = () => {
 
     const orderCreate = useSelector(state => state.orderCreate)
     const { order, success, error } = orderCreate
-    console.log();
 
     useEffect(() => {
         if(!user.name){
@@ -84,7 +85,7 @@ const PlaceOrderScreen = () => {
                 <CheckoutSteps step1 step2 step3 step4 />
                 <Row >
                     <Col md={8} >
-                        <ListGroup variant='flush'>
+                        <ListGroup variant='flush' className='shadow'>
                             <ListGroup.Item>
                                 <h2>Shipping</h2>
                                 <p>
@@ -131,7 +132,7 @@ const PlaceOrderScreen = () => {
                                                             0.01 *
                                                             item.price
                                                             : item.price}= 
-                                                            $ {item.qty *
+                                                             <i class="fa-solid fa-indian-rupee-sign"></i> {item.qty *
                                                             (item.discountPrice
                                                             ? item.price -
                                                             item.discountPrice *
@@ -148,7 +149,7 @@ const PlaceOrderScreen = () => {
                         </ListGroup>
                     </Col>
                     <Col md={4}>
-                        <Card>
+                        <Card className='shadow'>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
                                     <h2>Order Summary</h2>
@@ -156,31 +157,31 @@ const PlaceOrderScreen = () => {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Items</Col>
-                                        <Col>${cart.itemsPrice}</Col>
+                                        <Col> <i class="fa-solid fa-indian-rupee-sign"></i>{cart.itemsPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Wallet Discount</Col>
-                                        <Col>${walletUsed}</Col>
+                                        <Col> <i class="fa-solid fa-indian-rupee-sign"></i>{walletUsed}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Shipping</Col>
-                                        <Col>${cart.shippingPrice}</Col>
+                                        <Col> <i class="fa-solid fa-indian-rupee-sign"></i>{cart.shippingPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Tax</Col>
-                                        <Col>${cart.taxPrice}</Col>
+                                        <Col> <i class="fa-solid fa-indian-rupee-sign"></i>{cart.taxPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Total</Col>
-                                        <Col>${cart.totalPrice}</Col>
+                                        <Col> <i class="fa-solid fa-indian-rupee-sign"></i>{cart.totalPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -189,7 +190,7 @@ const PlaceOrderScreen = () => {
                                 <ListGroup.Item>
                                     <Button
                                         type='button'
-                                        className='btn-block'
+                                        className='btn-block bg-info'
                                         disabled={cart.cartItems === 0}
                                         onClick={placeOrderHandler}
                                     >

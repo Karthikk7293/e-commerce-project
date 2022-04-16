@@ -9,7 +9,13 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
   const user = await User.findOne({ email: email })
 
-  if (user.isBlock) {
+  if(!user){
+    res.status(401)
+    throw new Error('Invalid Email Id!')
+
+  }
+
+  if (user.isBlocked) {
     res.status(401)
     throw new Error('User blocked by admin')
   }

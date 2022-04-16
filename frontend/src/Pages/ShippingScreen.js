@@ -48,7 +48,7 @@ const ShippingScreen = () => {
             <CheckOutSteps step1 step2 />
             <h1 className='text-center'>Shipping</h1>
             <Row>
-                <Col>
+                <Col >
                 <h3 className='text-center'>ENTER NEW ADDRESS</h3>
                     <Form onSubmit={submitHandler}>
                         <Form.Group controlId='address'>

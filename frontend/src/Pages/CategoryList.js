@@ -14,14 +14,12 @@ const CategoryList = () => {
 
   const categoryList = useSelector(state=>state.categoryList)
     const {loading,error,categorieslist}=categoryList
-    console.log(categorieslist)
 
   const createCategoryHandler=()=>{
     navigate('/admin/addcategory')
   }
 
   useEffect(() => {
-    // console.log('6666666666')
     dispatch(listCategories())
   },[dispatch])
 

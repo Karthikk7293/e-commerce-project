@@ -8,10 +8,8 @@ import {
   Col,
   Table,
   Card,
-  Tabs,
   Tab,
   Nav,
-  Image,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
@@ -34,7 +32,7 @@ const ProfileScreen = () => {
   const [number, setNumber] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
-  const [key, setKey] = useState("home");
+  const [refresh, setRefresh] = useState(false);
   const [showCropper, setShowCropper] = useState(false)
   const [cropImage, setCropImage] = useState(false)
   const [imageOne, setImageOne] = useState(null)
@@ -61,13 +59,13 @@ const ProfileScreen = () => {
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
-  // console.log(user)
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
+  console.log(success,"------------------");
 
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
@@ -81,8 +79,9 @@ const ProfileScreen = () => {
 
   const { addresses } = useSelector((state) => state.addressList);
 
+
   useEffect(() => {
-    // console.log('123456789');
+
     if (!userInfo) {
       navigate("/signin");
     } else {
@@ -97,20 +96,26 @@ const ProfileScreen = () => {
         dispatch(listAddresses());
       }
     }
+   
   }, [
     dispatch,
     navigate,
     userInfo,
     orders,
     successDelete,
-    success,
     userUpdateProfile,
     user
   ]);
 
+  useEffect(()=>{
+
+if(success){
+  setRefresh(!refresh)
+}
+  },[success,refresh])
+
   const submitHandler = (e) => {
     e.preventDefault();
-    // console.log(email,password)
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
@@ -250,40 +255,26 @@ const ProfileScreen = () => {
                   )}
                   <Row>
                     {/* <Col md={3}> */}
-                    {addresses &&  addresses.length>0 ? ( addresses.map((address) => (
-                      <Col key={address._id}>
-                        <Card className=" cards shadow">
-                          <Card.Body>
-                            <Row className="pb-3">
+                     {addresses.map((address) => (
+                      <Col key={address._id} >
+                        <Card className=' cards'>
+                          <Card.Body >
+                            <Row className='pb-3'>
+
                               <Link to={`/admin/editaddress/${address._id}`}>
                                 <Card.Text>
-                                  <Card.Text as="div">
-                                    {address.address}
-                                  </Card.Text>
+                                  <Card.Text as="div">{address.address}</Card.Text>
                                   <Card.Text as="div">{address.city}</Card.Text>
-                                  <Card.Text as="div">
-                                    {address.postalCode}
-                                  </Card.Text>
-                                  <Card.Text as="div">
-                                    {address.country}
-                                  </Card.Text>
+                                  <Card.Text as="div">{address.postalCode}</Card.Text>
+                                  <Card.Text as="div">{address.country}</Card.Text>
                                 </Card.Text>
                               </Link>
                             </Row>
-                            <Button
-                              className="sm bg-info "
-                              onClick={() => deleteHandler(address._id)}
-                            >
-                              <i
-                                className="fas fa-times px-1"
-                                style={{ color: "red" }}
-                              ></i>
-                              Delete
-                            </Button>
+                            <Button className='sm' onClick={() => deleteHandler(address._id)}><i className='fas fa-times' style={{ color: 'red' }}></i>Delete</Button>
                           </Card.Body>
                         </Card>
                       </Col>
-                    ))): (<h1>not found</h1>)}
+                    ))}
                     {/* </Col> */}
                   </Row>
                 </Tab.Pane>

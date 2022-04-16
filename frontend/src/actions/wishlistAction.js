@@ -5,7 +5,6 @@ import {WISHLIST_ADD_ITEM,
 
 export const addToWishList = (id,qty=1) =>async (dispatch, getState) => {
     const {data}=await axios.get(`/api/products/${id}`)
-    // console.log(data)
 
     dispatch({
         type:WISHLIST_ADD_ITEM,
@@ -24,7 +23,6 @@ export const addToWishList = (id,qty=1) =>async (dispatch, getState) => {
 
 export const removeFromWislist=(id)=>(dispatch,getState)=>{
 
-    // console.log(id);
     dispatch({
         type:WISLIST_REMOVE_ITEM,
         payload:id,

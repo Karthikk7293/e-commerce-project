@@ -2,7 +2,6 @@ import asyncHandler from "express-async-handler";
 import Category from '../Models/categoryModel.js'
 
 const addNewCategory = asyncHandler(async (req, res) => {
-    // console.log(req.body)
     const {name}=req.body
 
     const existingCategory=await Category.findOne({name:name})

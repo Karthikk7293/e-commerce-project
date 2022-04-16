@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import { Table,Button,Row,Col,Container} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { listProducts,deleteProduct,createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 import Message from '../components/Message';
@@ -39,9 +40,16 @@ const ProductListScreen = () => {
     },[dispatch,navigate,userInfo,successDelete,successCreate,createdProduct])
 
     const deleteHandler=(id) => {
-        if(window.confirm('Are you Sure ?')){
-            dispatch(deleteProduct(id))
-        }
+        Swal.fire({
+            title: 'Are you sure to want to delete the Product?',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(deleteProduct(id))
+              Swal.fire('Delete successfully !')
+            } 
+          })
     }
     const createProductHandler=()=>{
         dispatch(createProduct())
@@ -55,7 +63,7 @@ const ProductListScreen = () => {
         <h1>Product</h1>
         </Col>
         <Col className='text-right'>
-          <Button className='my-3' onClick={createProductHandler}>
+          <Button className='my-3 bg-info' onClick={createProductHandler}>
             <i className='fas fa-plus'>Create Product</i>
           </Button>
         </Col>
@@ -91,7 +99,7 @@ const ProductListScreen = () => {
                                   <i className='fas fa-edit'></i>
                               </Button>
                               </LinkContainer>
-                              <Button variant ='danger' className='btn-sm' onClick={()=>deleteHandler(product._id)}>Trash</Button>
+                              <Button variant ='danger' className='btn-sm ' onClick={()=>deleteHandler(product._id)}><ion-icon name="trash-outline"></ion-icon></Button>
                           </td>  
                       </tr>
                   ))}

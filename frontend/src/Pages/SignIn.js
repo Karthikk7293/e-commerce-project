@@ -15,6 +15,7 @@ const SignIn = () => {
   const redirect = searchParams.get('redirect') || ''
   const userLogin = useSelector(state => state.userLogin)
   const { loading, error, userInfo } = userLogin
+  console.log(error,'---------------');
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -29,8 +30,10 @@ const SignIn = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
+    if(email!=="" && password!==""){
+      dispatch(login(email, password))
+    }
     // console.log(email,password)
-    dispatch(login(email, password))
   }
 
   return (
@@ -41,6 +44,8 @@ const SignIn = () => {
             <div className="screen">
               <div className="screen__content ">
                 <Form onSubmit={submitHandler} className="login py-5">
+                <img width="50" className='shadow border' style={{borderRadius:"50%"}}  src="https://media.istockphoto.com/vectors/running-shoe-heart-symbol-on-white-backdrop-vector-id1212219150?k=20&m=1212219150&s=612x612&w=0&h=HDUBBEueWigtu3f7ne8mZFbJmjtfzGqSdSLIgmw5-Lw=" alt="" />
+
                   <h3>log In</h3>
                   {error && <Message variant="danger">{error}</Message>}
                   {loading && <Loader />}

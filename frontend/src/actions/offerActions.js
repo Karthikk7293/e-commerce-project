@@ -8,7 +8,6 @@ export const listOffers = ()=>async (dispatch,getState)=>{
         const {userLogin:{userInfo}} = getState()
         const config = { headers: {Authorization: `Bearer ${userInfo.token}`},}
         const {data}=await axios.get(`/api/offers`,config)
-        // console.log(data)
         dispatch({type:OFFER_LIST_SUCCESS,payload:data})
     } catch (error) {
         dispatch({type: OFFER_LIST_FAIL,
@@ -26,7 +25,6 @@ export const addOffer = (offer)=>async (dispatch)=>{
         dispatch({type:OFFER_ADD_REQUEST})
         const config = { headers: {'Content-Type': 'application/json',},}
         const {data}=await axios.post('/api/offers',offer,config)
-        // console.log(data)
         dispatch({type:OFFER_ADD_SUCCESS,createSuccess:true,payload:data})
     } catch (error) {
         dispatch({type: OFFER_ADD_FAIL,

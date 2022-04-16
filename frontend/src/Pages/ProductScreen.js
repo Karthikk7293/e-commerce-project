@@ -174,7 +174,7 @@ const Product = () => {
                   (<ListGroupItem><strong>{product.discountPrice} % OFF </strong></ListGroupItem>)
                   : null}
                 <ListGroupItem className='h6'>
-                <span className='text-secondary'> Price:$</span><strong>{product.discountPrice > 0
+                <span className='text-secondary'> Price:</span><strong>{product.discountPrice > 0
                     ? product.price - (product.price * (product.discountPrice / 100))
                     : product.price}
                   </strong>

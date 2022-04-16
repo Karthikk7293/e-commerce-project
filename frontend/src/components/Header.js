@@ -6,7 +6,7 @@ import { logout } from '../actions/userActions'
 import { LinkContainer } from 'react-router-bootstrap'
 import SearchBar from './SearchBar';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-
+import './header.css'
 const Header = () => {
 
   const dispatch = useDispatch()
@@ -15,7 +15,8 @@ const Header = () => {
 
   const navigate = useNavigate()
 
-  const logoutHandler = () => {
+  const logoutHandler = (e) => {
+    e.preventDefault();
    
     Swal.fire({
       title: 'Do you want to logout?',
@@ -37,7 +38,7 @@ const Header = () => {
         style={{ backgroundColor: 'rgb(27 38 48)', minHeight: '4rem' }}
         expand="lg"
         collapseOnSelect
-        className='p-0'
+        className='p-0 px-2'
       >
         <Container fluid className='shadow' >
         <LinkContainer to="/" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem',borderRadius:"50%" }}>
@@ -45,21 +46,21 @@ const Header = () => {
           </LinkContainer>
 
           <LinkContainer to="/" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem' }}>
-            <Navbar.Brand className='ml-1 text-uppercase mx-5'><span>TheShopShop</span></Navbar.Brand>
+            <Navbar.Brand className='ml-1 text-uppercase '><span>TheShopShop</span></Navbar.Brand>
             
           </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav text-white" />
           <Navbar.Collapse id="basic-navbar-nav">
 
             <Nav className='mx-auto ' >
-              <Nav.Link className='my-auto' >
-                <Link  className="text-white" to={'/search/Boots'}>Boots</Link>
+              <Nav.Link className='my-auto px-3' >
+                {/* <Link  className="text-white" to={'/search/Boots'}>Boots</Link> */}
               </Nav.Link>
-              <Nav.Link className="text-white my-auto">
-              <Link  className="text-white my-auto" to={'/search/Casuals'}>Casuals</Link>
+              <Nav.Link className="text-white my-auto px-3">
+              {/* <Link  className="text-white my-auto" to={'/search/Casuals'}>Casuals</Link> */}
               </Nav.Link>
               
-              <Nav.Link className="text-white my-auto">
+              <Nav.Link className="text-white my-auto mx-3">
               <SearchBar />
               </Nav.Link>
 
@@ -102,7 +103,7 @@ const Header = () => {
               
               ) : (
                 <LinkContainer style={{ color: 'white' }} to="/signin">
-                  <Nav.Link className="my-auto">
+                  <Nav.Link className="my-auto px-3">
                     <i className="fas fa-user"></i> Sign In
                   </Nav.Link>
                 </LinkContainer>
@@ -132,12 +133,12 @@ const Header = () => {
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
 
-                  <LinkContainer to="/admin/orderlist">
+                  {/* <LinkContainer to="/admin/orderlist">
                     <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
+                  </LinkContainer> */}
 
                   <LinkContainer to="/admin/offers">
-                    <NavDropdown.Item>Offers and Coupons</NavDropdown.Item>
+                    <NavDropdown.Item>Offers </NavDropdown.Item>
                   </LinkContainer>
 
                   <LinkContainer to="/admin/categories">

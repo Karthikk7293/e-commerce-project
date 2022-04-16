@@ -28,7 +28,7 @@ const ProductCarousel = () => {
                        
                            
 
-                            <Image src={item.image} width={"100%"} height={"600"}  style={{marginTop:"-110px"}} />
+                            <Image src={item.image} width={"100%"} height={"auto"}  style={{marginTop:"-110px"}} />
                             
                             <Carousel.Caption className='carousel-capton mt-5 text-end pt-5 text-left  '>
                                 <p style={{color:"#ffffff" , fontSize:"4rem" ,fontWeight:"900", marginLeft:"-6rem",fontFamily:"sans-serif"}} className="py-5 my-5 text-uppercase"  >

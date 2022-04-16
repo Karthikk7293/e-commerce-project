@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Container, Card, Row, Col, } from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, } from 'react-bootstrap'
 import { useNavigate,useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTOAddresses,  } from '../actions/userActions'
 import { getAddressDetails, updateAddress } from '../actions/addressActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -24,10 +23,8 @@ const EditAddress = () => {
     const [country, setCountry] = useState();
 
     useEffect(()=>{
-        console.log('555555')
         if(!addres.address||addres._id!==addressId){
             dispatch(getAddressDetails(addressId))
-            // console.log(addressId)
         }else{
             setAddress(addres.address);
             setCity(addres.city);

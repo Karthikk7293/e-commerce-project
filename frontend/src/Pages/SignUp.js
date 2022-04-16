@@ -29,7 +29,6 @@ const SignUp = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // console.log(email,password)
         if (password !== confirmpassword) {
             setMessage('Passwords do not match')
         }
@@ -47,10 +46,12 @@ const SignUp = () => {
                     <div className="screen">
                         <div className="screen__content">
 
-                            <Form onSubmit={submitHandler} className="login py-5 ">
+                            <Form onSubmit={submitHandler} className="login py-3">
                                 {message && <Message variant="danger">{message}</Message>}
                                 {error && <Message variant="danger">{error}</Message>}
                                 {loading && <Loader />}
+                <img width="50" className='shadow border' style={{borderRadius:"50%"}}  src="https://media.istockphoto.com/vectors/running-shoe-heart-symbol-on-white-backdrop-vector-id1212219150?k=20&m=1212219150&s=612x612&w=0&h=HDUBBEueWigtu3f7ne8mZFbJmjtfzGqSdSLIgmw5-Lw=" alt="" />
+
                                 <h3>Register</h3>
                                 <div className="login__field">
                                     <i className="login__icon fas fa-user"></i>

@@ -20,7 +20,6 @@ const OrderScreen = () => {
 
     const orderDetails = useSelector(state => state.orderDetails)
     const { order, loading, error } = orderDetails
-    console.log(order)
 
     const orderPay = useSelector(state => state.orderPay)
     const { loading: loadingPay, success: successPay } = orderPay
@@ -69,7 +68,6 @@ const OrderScreen = () => {
         }
 
         const { data } = await axios.post(`/razorpay/${orderId}`)
-console.log(data);
         const options = {
             key: 'rzp_test_SvG7Lpzf0iHxq2',
             currency: data.currency,
@@ -146,7 +144,7 @@ console.log(data);
         Swal.fire({
             title: 'Are you to want to cancel the order?',
             showCancelButton: true,
-            confirmButtonText: 'Cancel',
+            confirmButtonText: 'ok',
           }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(deleteOrder(order))
@@ -169,7 +167,7 @@ console.log(data);
             <Row className="my-4">
                 <Col md={8}>
                     <ListGroup variant='flush'>
-                        <ListGroup.Item>
+                        <ListGroup.Item className='shadow'>
                             <h2>Shipping</h2>
                             <p><strong>Name:</strong>{order.user.name}</p>
                             <p>
@@ -187,7 +185,7 @@ console.log(data);
                             )}
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className='shadow'>
                             <h2>Payment Method</h2>
                             <p>
                                 <strong>Method: </strong>
@@ -198,7 +196,7 @@ console.log(data);
                             )}
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className='shadow'>
                             <h2>Order Items</h2>
                             {order.orderItems.length === 0 ? (
                                 <Message>Order is empty</Message>
@@ -221,7 +219,7 @@ console.log(data);
                                                     </Link>
                                                 </Col>
                                                 <Col md={4}>
-                                                    {item.qty} x ${item.price} = ${item.qty * item.price}
+                                                    {item.qty} x {item.price} = {item.qty * item.price}
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>
@@ -232,33 +230,33 @@ console.log(data);
                     </ListGroup>
                 </Col>
                 <Col md={4}>
-                    <Card>
+                    <Card className='shadow'>
                         <ListGroup variant='flush'>
-                            <ListGroup.Item>
+                            <ListGroup.Item >
                                 <h2>Order Summary</h2>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Items</Col>
-                                    <Col>${order.itemsPrice}</Col>
+                                    <Col><i class="fa-solid fa-indian-rupee-sign"></i> {order.itemsPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Shipping</Col>
-                                    <Col>${order.shippingPrice}</Col>
+                                    <Col> <i class="fa-solid fa-indian-rupee-sign"></i> {order.shippingPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Tax</Col>
-                                    <Col>${order.taxPrice}</Col>
+                                    <Col> <i class="fa-solid fa-indian-rupee-sign"></i> {order.taxPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Total</Col>
-                                    <Col>${order.totalPrice}</Col>
+                                    <Col> <i class="fa-solid fa-indian-rupee-sign"></i> {order.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                             {!order.isPaid && !order.isCancelled && 

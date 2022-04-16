@@ -110,7 +110,8 @@ const CartScreen = () => {
                   Subtotal ({cartItems.reduce((acc, item) => Number(acc) + Number(item.qty), 0)})
                   items
                 </h2>
-                $
+               
+                <i class="fa-solid fa-indian-rupee-sign"></i>
                 {cartItems
                   .reduce((acc, item) => acc + item.qty * (
                     item.discountPrice>0
@@ -119,6 +120,8 @@ const CartScreen = () => {
                       : item.price),
                     0)
                   .toFixed(2)}
+              
+               
               </ListGroup.Item>
               <ListGroup.Item className='mt-5' >
                 <Button
