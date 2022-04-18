@@ -161,7 +161,7 @@ const OrderScreen = () => {
             <Row className='pt-2 '>
                 <Col sm={12} xs={12}>
                     <h3>Order No:</h3>
-                    <p style={{ fontSize: '1.55rem', fontWeight: 'bold', color: 'indigo' }}>{order._id}</p>
+                    <p style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'indigo' }}>{order._id}</p>
                 </Col>
             </Row>
             <Row className="my-4">

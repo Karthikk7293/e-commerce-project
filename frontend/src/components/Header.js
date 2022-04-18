@@ -69,7 +69,7 @@ const Header = () => {
                 style={{ color: 'white' }}
                 to="/cart"
               >
-                <Nav.Link className='my-auto'>
+                <Nav.Link className='my-auto text-right'>
                   <i className="fas fa-shopping-cart"></i> Cart
                 </Nav.Link>
                 
@@ -79,14 +79,14 @@ const Header = () => {
                 style={{ color: 'white' }}
                 to="/wishlist"
               >
-                <Nav.Link className='my-auto'>
+                <Nav.Link className='my-auto text-right'>
                 <i class="fa-solid fa-heart"></i> Wishlist
                 </Nav.Link>
                 
               </LinkContainer>
               {userInfo ? (
                 userInfo.isAdmin ? "":(<NavDropdown
-                  className="px-3 text-light "
+                  className="px-3 text-light text-right "
                   title={
                     <img  alt="Remy Sharp" className='my-auto'  style={{ borderRadius: '50%' }}src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=50" ></img>
    
@@ -103,14 +103,14 @@ const Header = () => {
               
               ) : (
                 <LinkContainer style={{ color: 'white' }} to="/signin">
-                  <Nav.Link className="my-auto px-3">
+                  <Nav.Link className="my-auto  ">
                     <i className="fas fa-user"></i> Sign In
                   </Nav.Link>
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown
-                  className=" py-auto"
+                  className=" py-auto text-right"
                   title={
                     <img  alt="Remy Sharp" className='my-auto'  style={{ borderRadius: '50%' }}src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=50" ></img>
                   }
