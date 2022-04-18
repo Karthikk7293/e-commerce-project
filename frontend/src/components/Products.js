@@ -73,8 +73,7 @@ const Products = ({product,wishlist}) => {
                 
                {product.price && product.discountPrice>0 ? <del className='text-muted h6 '><i class="fa-solid fa-indian-rupee-sign"><strike>{product.price}</strike></i></del> : "" }
               </Card.Text>
-              <Card.Text className='btn-info w-100 btn add-to-cart-btn' onClick={((e)=>addToCartHandler(product._id,1)) } disabled={product.countInStock === 0}>addToCart</Card.Text>
-            <p  className='mx-auto  py-3 text-white h6 text-center bg-info' type='button' >Add To Cart</p>
+              <Card.Text className=' w-100 btn  mx-auto  py-3 text-white h6 text-center bg-info' onClick={((e)=>addToCartHandler(product._id,1)) } disabled={product.countInStock === 0}>addToCart</Card.Text>
 
             </Card.Body>
 

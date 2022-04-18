@@ -26,7 +26,7 @@ const ShippingScreen = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveShippingAddress({ address, city, postalCode, country }))
-        console.log({ address, city, postalCode, country })
+        // console.log({ address, city, postalCode, country })
         dispatch(addTOAddresses({ address, city, postalCode, country }))
         navigate('/payment')
     }
@@ -50,9 +50,9 @@ const ShippingScreen = () => {
             <Row>
                 <Col >
                 <h3 className='text-center'>ENTER NEW ADDRESS</h3>
-                    <Form onSubmit={submitHandler}>
+                    <Form onSubmit={submitHandler} className="rounded shadow p-3 bg-white" >
                         <Form.Group controlId='address'>
-                            <Form.Label>Address</Form.Label>
+                            <Form.Label className='px-3'>Address</Form.Label>
                             <Form.Control
                                 type='text'
                                 placeholder='Enter address'
@@ -63,7 +63,7 @@ const ShippingScreen = () => {
                         </Form.Group>
 
                         <Form.Group controlId='city'>
-                            <Form.Label>City</Form.Label>
+                            <Form.Label className='px-3'>City</Form.Label>
                             <Form.Control
                                 type='text'
                                 placeholder='Enter city'
@@ -74,7 +74,7 @@ const ShippingScreen = () => {
                         </Form.Group>
 
                         <Form.Group controlId='postalCode'>
-                            <Form.Label>Postal Code</Form.Label>
+                            <Form.Label className='px-3'>Postal Code</Form.Label>
                             <Form.Control
                                 type='text'
                                 placeholder='Enter postal code'
@@ -85,7 +85,7 @@ const ShippingScreen = () => {
                         </Form.Group>
 
                         <Form.Group controlId='country'>
-                            <Form.Label>Country</Form.Label>
+                            <Form.Label className='px-3'>Country</Form.Label>
                             <Form.Control
                                 type='text'
                                 placeholder='Enter country'
@@ -94,15 +94,17 @@ const ShippingScreen = () => {
                                 onChange={(e) => setCountry(e.target.value)}
                             ></Form.Control>
                         </Form.Group>
-                        
-                        <Button type='submit' variant='primary'  className='btn-block test' >
+                        <div className="text-right mt-2">
+                        <Button type='submit' variant='primary'  className=' bg-info test' >
                             Continue
                         </Button>
+                        </div>
+                        
                       
                     </Form>
                 </Col>
                 <Col>
-                <h3 className='text-center pb-4'>SELECT AN ADDRESS</h3>
+                <h3 className='text-center'>SELECT AN ADDRESS</h3>
                     {addresses.map((address) => (
                         <Col key={address._id}>
                             <Card onClick={(e) => {
@@ -113,7 +115,7 @@ const ShippingScreen = () => {
                                     postalCode: address.postalCode,
                                     country: address.country,
                                 })
-                            }} className='m-1 cards'>
+                            }} className='my-1 cards shadow rounded border-0'>
                                 <Card.Body>
                                     <Card.Text>
                                         <Card.Text as="div">{address.address}</Card.Text>

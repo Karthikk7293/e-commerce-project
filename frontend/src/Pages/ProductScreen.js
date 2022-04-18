@@ -165,13 +165,13 @@ const Product = () => {
                 </ListGroupItem>
 
                 {product.discountPrice > 0 ? (
-                  <ListGroupItem className='h6'>
-                    <strike>Price:$ {product.price}</strike>
+                  <ListGroupItem className='h6 text-secondary'>
+                    <strike>Price: {product.price}</strike>
                   </ListGroupItem>)
                   : null}
 
                 {product.discountPrice > 0 ?
-                  (<ListGroupItem><strong>{product.discountPrice} % OFF </strong></ListGroupItem>)
+                  (<ListGroupItem className='text-success h5'><strong>{product.discountPrice} % OFF </strong></ListGroupItem>)
                   : null}
                 <ListGroupItem className='h6'>
                 <span className='text-secondary'> Price:</span><strong>{product.discountPrice > 0
