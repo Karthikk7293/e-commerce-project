@@ -234,8 +234,8 @@ const SalesReport = () => {
         title={'Sales Report'}
         options={{
           filtering: true,
-          pageSize: 10,
-          pageSizeOptions: [10, 20, 30, 40, 50],
+          pageSize: 6,
+          pageSizeOptions: [6,12,18,24,30,36],
           exportButton: true,
           exportAllData: true,
         }}

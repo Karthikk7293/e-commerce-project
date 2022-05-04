@@ -21,18 +21,24 @@ const ProductCarousel = () => {
     ) : error ? (
         <Message variant='danger'>{error}</Message>
     ) : (
-        <Container className='py-4  'fluid  style={{height:"450px" ,overflowY:"hidden"}}>
-            <Carousel indicators={false} controls={false} pause='hover' className='rounded w-100' >
+        <Container className='my-4  'fluid  style={{minHeight:"60vh" ,overflowY:"hidden"}}>
+            <Carousel indicators={false} controls={false} pause='hover' className='rounded w-100' style={{height:"0px" }}  >
                 {images.map((item) => (
-                    <Carousel.Item  className=" product-carosel w-100 text-left"  >
-                       
-                           
+                    <Carousel.Item  className="w-100 text-left"  >
 
-                            <Image src={item.image} width={"100%"} height={"auto"}  style={{marginTop:"-110px"}} />
+                            <Image src={item.image} width={"100%"}    />
                             
-                            <Carousel.Caption className='carousel-capton mt-5 text-end pt-5 text-left  '>
-                                <p style={{color:"#ffffff" , fontSize:"4rem" ,fontWeight:"900", marginLeft:"-6rem",fontFamily:"sans-serif"}} className="py-5 my-5 text-uppercase"  >
+                            <Carousel.Caption className='carousel-capton  text-end  text-left py-5 mt-5 '>
+                                <p style={{color:"#ffffff" , fontSize:"4rem" ,fontWeight:"900",fontFamily:"monospace", letterSpacing:"-2px"}} className=" text-uppercase"  >
                                    {item.title}
+                                </p>
+                                <span style={{color:"#000000" , fontSize:"1.5rem" ,fontWeight:"900",fontFamily:"sans-serif"}} className="  text-capitalize"  >
+                                   {item.des}
+                                </span>
+                            </Carousel.Caption>
+                            <Carousel.Caption className='  text-end text-left  '>
+                                <p style={{color:"#ffffff" , fontSize:"2rem" ,fontWeight:"900", fontFamily:"sans-serif"}} className=" text-uppercase "  >
+                                   {item.head}
                                 </p>
                             </Carousel.Caption>
                     </Carousel.Item>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link, } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Container, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
@@ -23,7 +23,6 @@ import { addToWishList } from '../actions/wishlistAction'
 const Product = () => {
 
   const params = useParams()
-  const navigate = useNavigate()
   const dispatch = useDispatch()
   const alert = useAlert();
 
@@ -84,8 +83,8 @@ const Product = () => {
 
   return (
     <Container className='pt-3' >
-      <Link to='/' className='btn btn-light m-3'>
-      <ion-icon name="caret-back-sharp"></ion-icon>
+      <Link to='/' className='btn btn-light  text-info' >
+      <ion-icon name="caret-back-sharp"></ion-icon> back to home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
@@ -153,7 +152,7 @@ const Product = () => {
               </Card>
             </Col>
             <Col md={6}>
-              <ListGroup variant='flush'>
+              <ListGroup variant='flush' className='shadow rounded border-0'>
                 <ListGroupItem>
                   <h3>{product.name}</h3>
                 </ListGroupItem>
@@ -186,7 +185,7 @@ const Product = () => {
                  <span className='text-secondary'> Description:</span>{product.description}
                 </ListGroupItem>
               </ListGroup>
-              <Card>
+              <Card className='shadow rounded border-0'>
                 <ListGroup variant='flush'>
                   <ListGroupItem className='h6'>
                     <Row>
@@ -236,21 +235,31 @@ const Product = () => {
             </Col>
             
           </Row>
-          <Row>
-            <Col md={6}>
-              <h2>Reviews</h2>
-              {product.reviews.length === 0 && <Message>No Reviews</Message>}
-              <ListGroup variant='flush'>
+          <Row className='my-2'>
+            <Col md={12}>
+            <h3>Reviews</h3>
+            </Col>
+         
                 {product.reviews.map((review) => (
-                  <ListGroup.Item key={review._id}>
+          <Col md={3}>
+                  <ListGroup.Item key={review._id} className="rounded shadow">
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
                     <p>{review.createdAt.substring(0, 10)}</p>
                     <p>{review.comment}</p>
                   </ListGroup.Item>
+                </Col>
                 ))}
+                </Row>
+                <Row className='py-2'>
+            <Col md={5} className="rounded shadow py-2">
+              
+              {product.reviews.length === 0 && <Message>No Reviews</Message>}
+              <ListGroup variant='flush'>
+                
+               
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h4>Write a Customer Review</h4>
                   {successProductReview && (
                     <Message variant='success'>
                       Review submitted successfully
@@ -286,13 +295,17 @@ const Product = () => {
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
+                      <div className="text-right py-3">
                       <Button
                         disabled={loadingProductReview}
                         type='submit'
                         variant='primary'
+                        className='bg-info'
                       >
-                        Submit
+                        ADD REVIEW
                       </Button>
+                      </div>
+                     
                     </Form>
                   ) : (
                     <Message>

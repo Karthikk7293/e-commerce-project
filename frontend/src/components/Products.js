@@ -40,7 +40,7 @@ const Products = ({product,wishlist}) => {
                         <i className='fas fa-trash'></i>
                       </Button>) : ""}
                 </Card.Text>
-                <div className="product-image mx-auto" style={{height:"11rem",width:"14.4rem", overflowY:"hidden" , overflowX:"hidden"}}>
+                <div className="product-image mx-auto" style={{height:"11rem",width:"100%", overflowY:"hidden" , overflowX:"hidden"}}>
                 {wishlist && wishlist ? (
                    <Link to={`/product/${product.product}`} >
                    <Card.Img src={product.image} variant='top' />

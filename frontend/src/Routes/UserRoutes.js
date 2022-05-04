@@ -1,32 +1,33 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
+import ErrorPage from '../components/Error';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
-import CategoryScreen from '../Pages/CategoryScreen';
-import HomeScreen from '../Pages/HomeScreen';
-import SignIn from '../Pages/SignIn';
-import SignUp from '../Pages/SignUp';
-import ProductScreen from '../Pages/ProductScreen';
-import CartScreen from '../Pages/CartScreen';
-import WishListScreen from '../Pages/WishListScreen';
-import ProfileScreen from '../Pages/ProfileScreen';
-import ShippingScreen from '../Pages/ShippingScreen';
-import PaymentScreen from '../Pages/PaymentScreen';
-import PlaceOrderScreen from '../Pages/PlaceOrderScreen';
-import OrderScreen from '../Pages/OrderScreen';
-import UserListScreen from '../Pages/UserListScreen';
-import ProductListScreen from '../Pages/ProductListScreen';
-import ProductEditScreen from '../Pages/ProductEditScreen';
-import OrderListScreen from '../Pages/OrderListScreen'
-import EditAddress from '../Pages/EditAddress'
-import CategoryList from '../Pages/CategoryList';
 import AddCategory from '../Pages/AddCategory';
+import CartScreen from '../Pages/CartScreen';
+import CategoryList from '../Pages/CategoryList';
+import CategoryScreen from '../Pages/CategoryScreen';
 import CreateOffer from '../Pages/CreateOffer';
 import DashBoard from '../Pages/DashBoard';
-import Footer from '../components/Footer';
-import SalesReport from '../Pages/SalesReport';
-import ErrorPage from '../components/Error'
+import EditAddress from '../Pages/EditAddress';
+import HomeScreen from '../Pages/HomeScreen';
+import OrderListScreen from '../Pages/OrderListScreen';
+import OrderScreen from '../Pages/OrderScreen';
 import OtpScreen from '../Pages/OtpScreen';
 import OtpVarifyScreen from '../Pages/OtpVarifyScreen';
+import PaymentScreen from '../Pages/PaymentScreen';
+import PlaceOrderScreen from '../Pages/PlaceOrderScreen';
+import ProductEditScreen from '../Pages/ProductEditScreen';
+import ProductListScreen from '../Pages/ProductListScreen';
+import ProductScreen from '../Pages/ProductScreen';
+import ProfileScreen from '../Pages/ProfileScreen';
+import SalesReport from '../Pages/SalesReport';
+import ShippingScreen from '../Pages/ShippingScreen';
+import SignIn from '../Pages/SignIn';
+import SignUp from '../Pages/SignUp';
+import UserListScreen from '../Pages/UserListScreen';
+import WishListScreen from '../Pages/WishListScreen';
+
 const UserRoutes = () => {
     return (
         <>

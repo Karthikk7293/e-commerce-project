@@ -52,7 +52,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav text-white" />
           <Navbar.Collapse id="basic-navbar-nav">
 
-            <Nav className='mx-auto ' >
+            <Nav className='ml-auto' >
               <Nav.Link className='my-auto px-3' >
                 {/* <Link  className="text-white" to={'/search/Boots'}>Boots</Link> */}
               </Nav.Link>
