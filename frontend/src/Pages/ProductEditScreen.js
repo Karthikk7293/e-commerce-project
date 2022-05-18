@@ -69,28 +69,16 @@ const ProductEditScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    //  dispatch(updateProduct({
-    //    _id: productId,
-    //    name,
-    //    price,
-    //    image,
-    //    size,
-    //    brand,
-    //    category,
-    //    description,
-    //    countInStock,
-    //  }))
+   
     const formData = new FormData()
     formData.set('name', name)
     formData.set('price', price)
-    // formData.set('discountPrice', discountPrice)
     formData.set('countInStock', countInStock)
     formData.set('image', image)
     formData.set('brand', brand)
     formData.set('size', size)
     formData.set('rating', rating)
     formData.set('category', category)
-    // formData.set('subCategory', subCategory)
     formData.set('description', description)
     formData.set('numReviews', numReviews)
     images.forEach((image) => {
@@ -100,7 +88,6 @@ const ProductEditScreen = () => {
   }
 
   const uploadFileHandler = async (image) => {
-    // const file = e.target.files[0]
     const formData = new FormData()
     formData.append('image', image,image.originalname)
     setUploading(true)

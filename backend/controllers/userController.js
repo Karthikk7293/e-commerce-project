@@ -71,17 +71,17 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // console.log(req.body.image);
 // let avatar={}
  
-    // const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id);
 
-    // const imageId = user.avatar.public_id;
+    const imageId = user.avatar.public_id;
 
-    // // await cloudinary.v2.uploader.destroy(imageId);
+    // await cloudinary.v2.uploader.destroy(imageId);
 
-    // const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
-    //   folder: "avatars",
-    //   width: 150,
-    //   crop: "scale",
-    // });
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
+    });
 
     // avatar = {
     //   public_id: myCloud.public_id,
